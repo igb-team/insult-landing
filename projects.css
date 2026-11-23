@@ -1,0 +1,115 @@
+.catalog {
+  padding-top: clamp(2.75rem, 7vw, 6rem);
+  padding-bottom: clamp(4rem, 7vw, 7rem);
+}
+.catalog .page-title {
+  margin: .3em 0 .42em;
+}
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 0 0 2.2rem;
+}
+.catalog-filters[hidden], .catalog-card[hidden] { display: none; }
+.catalog-filters button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  min-height: 44px;
+  color: var(--text);
+  font: inherit;
+  padding: .58rem 1.15rem;
+  cursor: pointer;
+}
+.catalog-filters button:hover, .catalog-filters button:focus-visible { border-color: var(--accent); }
+.catalog-filters button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--on-accent, white);
+  border-color: transparent;
+}
+.catalog-grid {
+  display: grid;
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 2rem);
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  scroll-margin-top: 6.5rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  overflow: hidden;
+}
+.catalog-card:target { border-color: var(--accent); }
+.catalog-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+.catalog-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(1rem, 2vw, 1.55rem);
+}
+.catalog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2em .75em;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--accent);
+  font-family: var(--body);
+  font-size: .875rem;
+  text-transform: uppercase;
+}
+.catalog-body h2 {
+  font-size: clamp(1.4rem,2.3vw,2rem);
+  line-height: 1.11;
+  letter-spacing: -.025em;
+  margin: .6em 0 .28em;
+  overflow-wrap: anywhere;
+}
+.catalog-duration, .catalog-status {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: .65rem 0 1.05rem;
+}
+.catalog-about {
+  border-top: 1px solid var(--line);
+  padding-top: .85rem;
+  line-height: 1.55;
+}
+.catalog-about p { margin: .3em 0 1em; }
+.catalog-about ul { padding-inline-start: 1.15em; margin: 0 0 1em; }
+.catalog-about li { margin: .45em 0; }
+.catalog-about li::marker { color: var(--accent); }
+.catalog-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: auto;
+  text-align: center;
+  min-height: 44px;
+  padding: .4rem .95rem;
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--accent);
+  background: var(--bg);
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.catalog-download:hover, .catalog-download:focus-visible { background: var(--accent); color: var(--on-accent, white); border-color: var(--accent); }
+@media (max-width: 950px) { .catalog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 640px) {
+  .catalog-grid { grid-template-columns: minmax(0,1fr); }
+  .catalog-filters button { padding: .57rem .8rem; }
+}
